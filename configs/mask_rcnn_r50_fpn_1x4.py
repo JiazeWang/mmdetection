@@ -1,4 +1,3 @@
-# model settings
 model = dict(
     type='MaskRCNN',
     pretrained='open-mmlab://resnext101_32x4d',
