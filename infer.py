@@ -1,7 +1,7 @@
 from mmdet.apis import init_detector, inference_detector, show_result
 import mmcv
 
-config_file = 'configs/mask_rcnn_r50_fpn_1x.py'
+config_file = 'configs/mask_rcnn_r50_fpn_1x4.py'
 checkpoint_file = 'model/mask_rcnn_r50_c4_2x-3cf169a9.pth'
 
 # build the model from a config file and a checkpoint file
