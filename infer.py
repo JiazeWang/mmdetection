@@ -14,4 +14,4 @@ result = inference_detector(model, img)
 #show_result(img, result, model.CLASSES)
 # or save the visualization results to image files
 print(model.CLASSES)
-show_result(img, result, model.CLASSES, '0.8', out_file='result_00001.jpg')
+show_result(img, result, model.CLASSES, out_file='result_00001.jpg')
