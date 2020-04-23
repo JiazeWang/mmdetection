@@ -144,6 +144,7 @@ def show_result(img,
     assert isinstance(class_names, (tuple, list))
     img = mmcv.imread(img)
     img = img.copy()
+    img[img<255] = 0
     if isinstance(result, tuple):
         bbox_result, segm_result = result
     else:
