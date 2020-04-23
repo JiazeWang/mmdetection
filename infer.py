@@ -14,4 +14,5 @@ result = inference_detector(model, img)
 #show_result(img, result, model.CLASSES)
 # or save the visualization results to image files
 print(model.CLASSES)
-show_result(img, result, model.CLASSES, out_file='result_00001.jpg')
+human = ['person']
+show_result(img, result, human, out_file='result_00001.jpg')
