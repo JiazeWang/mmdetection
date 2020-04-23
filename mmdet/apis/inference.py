@@ -172,6 +172,7 @@ def show_result(img,
     if out_file is not None:
         show = False
     # draw bounding boxes
+    """
     mmcv.imshow_det_bboxes(
         img,
         bboxes,
@@ -181,6 +182,7 @@ def show_result(img,
         show=show,
         wait_time=wait_time,
         out_file=out_file)
+    """
     if not (show or out_file):
         return img
 
