@@ -7,6 +7,7 @@ import pycocotools.mask as maskUtils
 import torch
 from mmcv.parallel import collate, scatter
 from mmcv.runner import load_checkpoint
+from mmcv.image import imread, imwrite
 
 from mmdet.core import get_classes
 from mmdet.datasets.pipelines import Compose
