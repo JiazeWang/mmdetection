@@ -120,7 +120,7 @@ async def async_inference_detector(model, img):
 def show_result(img,
                 result,
                 class_names,
-                score_thr=0.3,
+                score_thr=0.8,
                 wait_time=0,
                 show=True,
                 out_file=None):
@@ -160,7 +160,8 @@ def show_result(img,
         inds = np.where(bboxes[:, -1] > score_thr)[0]
         np.random.seed(42)
         color_masks = [
-            np.random.randint(0, 256, (1, 3), dtype=np.uint8)
+            #np.random.randint(0, 256, (1, 3), dtype=np.uint8)
+            [[0, 0, 0]]
             for _ in range(max(labels) + 1)
         ]
         for i in inds:
