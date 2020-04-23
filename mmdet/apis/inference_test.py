@@ -7,6 +7,7 @@ import pycocotools.mask as maskUtils
 import torch
 from mmcv.parallel import collate, scatter
 from mmcv.runner import load_checkpoint
+from mmcv.image import imread, imwrite
 
 from mmdet.core import get_classes
 from mmdet.datasets.pipelines import Compose
@@ -119,7 +120,7 @@ async def async_inference_detector(model, img):
 def show_result(img,
                 result,
                 class_names,
-                score_thr=0.3,
+                score_thr=0.8,
                 wait_time=0,
                 show=True,
                 out_file=None):
@@ -143,6 +144,7 @@ def show_result(img,
     assert isinstance(class_names, (tuple, list))
     img = mmcv.imread(img)
     img = img.copy()
+    img[img<255] = 255
     if isinstance(result, tuple):
         bbox_result, segm_result = result
     else:
@@ -159,15 +161,21 @@ def show_result(img,
         inds = np.where(bboxes[:, -1] > score_thr)[0]
         np.random.seed(42)
         color_masks = [
-            np.random.randint(0, 256, (1, 3), dtype=np.uint8)
+            #np.random.randint(0, 256, (1, 3), dtype=np.uint8)
+            [[0, 0, 0]]
             for _ in range(max(labels) + 1)
         ]
         for i in inds:
             i = int(i)
             color_mask = color_masks[labels[i]]
             mask = maskUtils.decode(segms[i]).astype(np.bool)
-            img[mask] = img[mask] * 0.5 + color_mask * 0.5
+            img[mask] = color_mask
+            #img[mask] = img[mask] * 0.5 + color_mask * 0.5
+    # if out_file specified, do not show image in window
+    if out_file is not None:
+        show = False
     # draw bounding boxes
+    """
     mmcv.imshow_det_bboxes(
         img,
         bboxes,
@@ -177,6 +185,12 @@ def show_result(img,
         show=show,
         wait_time=wait_time,
         out_file=out_file)
+    """
+    if show:
+        imshow(img, win_name='', wait_time=0)
+    if out_file is not None:
+        imwrite(img, out_file)
+
     if not (show or out_file):
         return img
 
