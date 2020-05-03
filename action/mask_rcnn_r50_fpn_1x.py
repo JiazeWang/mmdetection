@@ -188,8 +188,3 @@ work_dir = './work_dirs/mask_rcnn_r50_fpn_1x'
 load_from = None
 resume_from = None
 workflow = [('train', 1)]
-
-
-./tools/dist_test.sh action/mask_rcnn_r50_fpn_1x.py \
-    checkpoints/mask_rcnn_r50_fpn_1x_20181010-069fa190.pth \
-    8 --format_only --options "jsonfile_prefix=./mask_rcnn_test-dev_results"
