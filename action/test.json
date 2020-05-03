@@ -1,3 +1,3 @@
 {"info": {"description": "COCO 2014 Dataset","url": "http://cocodataset.org","version": "1.0","year": 2014,"contributor": "COCO Consortium","date_created": "2017/09/01"},
- "images": [{"file_name": "/home/jzwang/code/mmdetection/action/Yorki_Kassy_beim_Fahrrad_fahren_ride_bike_f_cm_np1_fr_med_3.avi/img_00001.jpg", 'id': 1},
-  {"file_name": "/home/jzwang/code/mmdetection/action/Yorki_Kassy_beim_Fahrrad_fahren_ride_bike_f_cm_np1_fr_med_3.avi/img_00002.jpg", 'id': 2}]}
+ "images": [{"file_name": "/home/jzwang/code/mmdetection/action/Yorki_Kassy_beim_Fahrrad_fahren_ride_bike_f_cm_np1_fr_med_3.avi/img_00001.jpg", "id": 1},
+  {"file_name": "/home/jzwang/code/mmdetection/action/Yorki_Kassy_beim_Fahrrad_fahren_ride_bike_f_cm_np1_fr_med_3.avi/img_00002.jpg", "id": 2}]}
